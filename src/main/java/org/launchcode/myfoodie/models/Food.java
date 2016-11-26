@@ -1,28 +1,36 @@
-package org.launchcode.models;
+package org.launchcode.myfoodie.models;
 
-import java.io.File;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
-public class Food {
+
+@Entity
+@Table(name = "food")
+public class Food extends AbstractEntity{
 
 	private String foodname;
 	private String place;
 	private String description;
-	private double cost;
+	private double price;
 	private int rating;
 	private boolean worthit;
-	private File picture;
+
 	
 	public Food(){};
 	
-	public Food(String foodname, String place, String description, double cost, int rating, boolean worthit){
+	public Food(String foodname, String place, String description, double price, int rating, boolean worthit){
+		super ();
 		this.foodname = foodname;
 		this.place = place;
 		this.description = description;
-		this.cost = cost;
+		this.price = price;
 		this.rating = rating;
 		this.worthit = worthit;
 	}
-
+	@NotNull
+    @Column(name = "foodname")
 	public String getFoodname() {
 		return foodname;
 	}
@@ -30,7 +38,8 @@ public class Food {
 	public void setFoodname(String foodname) {
 		this.foodname = foodname;
 	}
-
+	@NotNull
+    @Column(name = "place")
 	public String getPlace() {
 		return place;
 	}
@@ -38,7 +47,8 @@ public class Food {
 	public void setPlace(String place) {
 		this.place = place;
 	}
-
+	@NotNull
+    @Column(name = "description")
 	public String getDescription() {
 		return description;
 	}
@@ -46,15 +56,17 @@ public class Food {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
-	public double getCost() {
-		return cost;
+	@NotNull
+    @Column(name = "price")
+	public double getPrice() {
+		return price;
 	}
 
-	public void setCost(double cost) {
-		this.cost = cost;
+	public void setPrice(double price) {
+		this.price = price;
 	}
-
+	@NotNull
+    @Column(name = "rating")
 	public int getRating() {
 		return rating;
 	}
@@ -62,21 +74,14 @@ public class Food {
 	public void setRating(int rating) {
 		this.rating = rating;
 	}
-
+	@NotNull
+    @Column(name = "worthit")
 	public boolean isWorthit() {
 		return worthit;
 	}
 
 	public void setWorthit(boolean worthit) {
 		this.worthit = worthit;
-	}
-
-	public File getPicture() {
-		return picture;
-	}
-
-	public void setPicture(File picture) {
-		this.picture = picture;
 	}
 	
 }
