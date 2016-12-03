@@ -8,6 +8,34 @@
 	<h1>newFood!</h1>
 	
 	<!-- TODO - create new food entry form -->
+		<form method="post">
+	    <label>
+	        <div>Food Name</div>
+	        <input type="text" name="foodname" th:value="${foodname}"></input>
+	    </label>
+	    <label>
+	        <div>Food Description</div>
+	        <textarea name="description" th:text="${body}"></textarea>
+	    </label>
+	    <label>
+	        <div>Place</div>
+	        <input type="text" name="place" th:value="${place}"></input>
+	    </label>
+	    <label>
+	        <div>Cost</div>
+	        <input type="text" name="price" th:value="${price}"></input>
+	    </label>
+	    <label>
+	        <div>Rating 1-10</div>
+	        <input type="text" name="rating" th:value="${rating}"></input>
+	    </label>
+	    <label>
+	        <div>Worth It?</div>
+	        <input type="text" name="worthit" th:value="${worthit}"></input>
+	    </label>
+	    <div class="error" th:text="${error}"></div>
+	    <button type="submit">Enter New Food!</button>
+	</form>
 	
 </body>
 </html>
