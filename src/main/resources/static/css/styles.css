@@ -1,10 +1,44 @@
+ html { 
+  height: 100%;
+  background: url(/img/burger.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.user-form{
+	
+}
 body {
+	opacity: 0.95;
     font-family: sans-serif;
-    width: 800px;
+    width: 1000px;
+    height: 100%;
     margin: 0 auto;
-    padding: 10px;
+    padding: 0px;
+}
+h1 {
+	text-align: center;
+}
+table{
+	font-size: 20px;
+}
+form {
+	display: inline-block;
+}
+label {
+	text-align: left;
+}
+.food-form {
+	text-align: center;
 }
 
+.navbar-brand{
+	font-size: 30px;
+}
+.navbar-nav{
+	font-size: 25px;
+}
 .error {
     color: red;
 }
@@ -35,25 +69,6 @@ input[type=submit] {
 
 hr {
     margin: 20px auto;
-}
-
-.post + .post {
-    margin-top: 20px;
-}
-
-.post-title {
-    font-weight: bold;
-    font-size: 20px;
-}
-
-.post-body {
-    margin: 0;
-    font-size: 17px;
-}
-
-.post-author {
-    font-style: italic;
-    font-size: 12px;
 }
 
 nav ul {
