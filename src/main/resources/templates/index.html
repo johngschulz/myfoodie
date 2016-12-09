@@ -6,5 +6,19 @@
 	
 	<div th:replace="template :: navigation"></div>
 	<h1>myFoodie</h1>
+
+<table class="table table-striped">
+  <tr>
+    <th>Food</th>
+    <th>Rating</th> 
+    <th>Foodie</th>
+  </tr>
+  <tr th:each="food : ${foods}">
+    <td><a th:href="'/' + ${food.foodie.username} + '/' + ${food.uid}" th:text="${food.foodname}"></a> </td>
+    <td th:text="${food.rating}"></td> 
+    <td th:text="${food.foodie.username}"></td>
+  </tr>	
+</table>
+
 </body>
 </html>

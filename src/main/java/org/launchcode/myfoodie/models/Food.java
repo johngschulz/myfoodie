@@ -4,14 +4,18 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+
+import org.launchcode.myfoodie.models.User;
 
 
 @Entity
 @Table(name = "food")
 public class Food extends AbstractEntity{
-
+	
+	private User foodie;
 	private String foodname;
 	private String place;
 	private String description;
@@ -24,8 +28,9 @@ public class Food extends AbstractEntity{
 
 	public Food(){};
 	
-	public Food(String foodname, String place, String description, String price, String rating, String worthit){
+	public Food(User foodie, String foodname, String place, String description, String price, String rating, String worthit){
 		super ();
+		this.foodie = foodie;
 		this.foodname = foodname;
 		this.place = place;
 		this.description = description;
@@ -33,6 +38,16 @@ public class Food extends AbstractEntity{
 		this.rating = rating;
 		this.worthit = worthit;
 		this.eatenon = new Date();
+		
+		foodie.addFood(this);
+	}
+	@ManyToOne
+	public User getFoodie() {
+		return foodie;
+	}
+	@SuppressWarnings("unused")
+	private void setfoodie(User foodie) {
+		this.foodie = foodie;
 	}
 	@NotNull
     @Column(name = "foodname")
@@ -81,7 +96,7 @@ public class Food extends AbstractEntity{
 	}
 	@NotNull
     @Column(name = "worthit")
-	public String isWorthit() {
+	public String getWorthit() {
 		return worthit;
 	}
 

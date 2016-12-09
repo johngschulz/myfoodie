@@ -8,11 +8,10 @@
 	<h1>myFood!</h1>
 	
 	<!-- TODO - create myfood list -->
-<div th:each="food : ${foods}">
-
-	<h2><a th:href="'/' + ${food.author.username} + '/' + ${food.uid}" th:text="${food.foodname}"></a></h2>
-	
-</div>
-
+	<table class ="table table-striped">
+		<tr th:each="food : ${foods}">
+	<td><a th:href="'/' + ${food.foodie.username} + '/' + ${food.uid}" th:text="${food.foodname}"></a></td>
+		</tr>
+	</table>
 </body>
 </html>
