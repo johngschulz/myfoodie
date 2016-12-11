@@ -64,7 +64,7 @@ public class AuthenticationController extends AbstractController {
 		model.addAttribute("username", username);
 		HttpSession thisSession = request.getSession();
 		setUserInSession(thisSession, user);
-		return "redirect:/newfood";
+		return "redirect:/";
 		}
 	
 	// method to see if username matches the regex pattern
@@ -112,7 +112,7 @@ public class AuthenticationController extends AbstractController {
 		if(user != null && matches == true){
 		HttpSession thisSession = request.getSession();
 		setUserInSession(thisSession, user);
-		return "redirect:/newfood";
+		return "redirect:/";
 		}
 		else{
 			String error = "Invalid username or password";

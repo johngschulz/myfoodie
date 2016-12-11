@@ -87,7 +87,7 @@ public class FoodController extends AbstractController {
 	}
 
 // The CSS won't work with the {uid} mapping
-	@RequestMapping(value = "/{username}/{uid} ", method = RequestMethod.GET)
+	@RequestMapping(value = "/{username}/{uid}", method = RequestMethod.GET)
 	public String singleFood(@PathVariable String username, @PathVariable int uid, Model model) {
 		
 		//  - implement single food
