@@ -87,7 +87,7 @@ public class FoodController extends AbstractController {
 	}
 
 // The CSS won't work with the {uid} mapping
-	@RequestMapping(value = "/{username}/{uid}", method = RequestMethod.GET)
+	@RequestMapping(value = "/" + "{username}" + "/" + "{uid}", method = RequestMethod.GET)
 	public String singleFood(@PathVariable String username, @PathVariable int uid, Model model) {
 		
 		//  - implement single food
@@ -115,6 +115,20 @@ public class FoodController extends AbstractController {
 			
 		return "myfood";
 		
+	}
+	@RequestMapping(value = "/{username}", method = RequestMethod.GET)
+	public String userPosts(@PathVariable String username, Model model) {
+		
+		//  - implement userPosts
+		
+		// get all of the user's posts List<listofpost>
+		User user = userDao.findByUsername(username);
+
+		List<Food> foods = user.getFoods();
+		// pass the posts into the template
+		model.addAttribute("foods", foods);
+		
+		return "myfood";
 	}
 
 }

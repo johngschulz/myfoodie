@@ -18,7 +18,7 @@
     <td><a th:href="'/' + ${food.foodie.username} + '/' + ${food.uid}" th:text="${food.foodname}"></a> </td>
     <td th:text="${food.price}"></td>
     <td th:text="${food.rating}"></td> 
-    <td th:text="${food.foodie.username}"></td>
+    <td> <a th:href="'/'+ ${food.foodie.username}" th:text="${food.foodie.username}"></a></td>
   </tr>	
 </table>
 
