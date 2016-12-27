@@ -83,11 +83,11 @@ public class FoodController extends AbstractController {
 		String username = user.getUsername();
 		int uid = food.getUid();
 		
-		return ("redirect:/" + username + "/"+ uid); //  - this redirect should go to the new food's page  				
+		return ("redirect:/" + username + "/f"+ uid); //  - this redirect should go to the new food's page  				
 	}
 
 // The CSS won't work with the {uid} mapping
-	@RequestMapping(value = "/" + "{username}" + "/" + "{uid}", method = RequestMethod.GET)
+	@RequestMapping(value = "/{username}/f{uid}", method = RequestMethod.GET)
 	public String singleFood(@PathVariable String username, @PathVariable int uid, Model model) {
 		
 		//  - implement single food

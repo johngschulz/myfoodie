@@ -5,7 +5,7 @@
 <body>
 	
 	<div th:replace="template :: navigation"></div>
-	<h2><a th:href="'/' + ${food.foodie.username} + '/' + ${food.uid}" th:text="${food.foodname}"></a></h2>
+	<h2><a th:href="'/' + ${food.foodie.username} + '/f' + ${food.uid}" th:text="${food.foodname}"></a></h2>
 	<p th:text="${food.description}"></p>
 	<p th:text="${food.place}"></p>
 	<p th:text="${food.price}"></p>
