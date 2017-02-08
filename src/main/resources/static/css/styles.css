@@ -42,6 +42,9 @@ label {
 .error {
     color: red;
 }
+.single{
+	display: inline-block;
+}
 
 label {
     display: block;

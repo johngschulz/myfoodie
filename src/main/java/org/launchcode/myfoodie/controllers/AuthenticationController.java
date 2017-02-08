@@ -98,6 +98,7 @@ public class AuthenticationController extends AbstractController {
 		
 		//get user by username
 		User user = userDao.findByUsername(username);
+		
 		// check if password is correct
 		boolean matches = false;
 		try{
@@ -108,6 +109,7 @@ public class AuthenticationController extends AbstractController {
 			model.addAttribute("error", error);
 			return "login";
 		}
+		
 		// log them in, if all is good (i.e. setting the user in the session)
 		if(user != null && matches == true){
 		HttpSession thisSession = request.getSession();

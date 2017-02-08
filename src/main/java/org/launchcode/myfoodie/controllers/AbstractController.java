@@ -7,6 +7,8 @@ import org.launchcode.myfoodie.models.dao.FoodDao;
 import org.launchcode.myfoodie.models.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 
+// Uses Daos to set and get users from the session
+
 public abstract class AbstractController {
 
 	@Autowired

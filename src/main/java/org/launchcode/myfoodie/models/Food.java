@@ -19,7 +19,7 @@ public class Food extends AbstractEntity{
 	private String foodname;
 	private String place;
 	private String description;
-	private String price;
+	private double price;
 	private String rating;
 	private String worthit;
 	private Date eatenon;
@@ -28,7 +28,8 @@ public class Food extends AbstractEntity{
 
 	public Food(){};
 	
-	public Food(User foodie, String foodname, String place, String description, String price, String rating, String worthit){
+	//Constructor adds food to the user's <food> list
+	public Food(User foodie, String foodname, String place, String description, double price, String rating, String worthit){
 		super ();
 		this.foodie = foodie;
 		this.foodname = foodname;
@@ -78,11 +79,11 @@ public class Food extends AbstractEntity{
 	}
 	@NotNull
     @Column(name = "price")
-	public String getPrice() {
+	public double getPrice() {
 		return price;
 	}
 
-	public void setPrice(String price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 	@NotNull

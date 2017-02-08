@@ -13,6 +13,9 @@ import org.launchcode.myfoodie.models.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
+
+// Uses session to verify if the user is logged in, and has the permissions to view a page
+
 public class AuthenticationInterceptor extends HandlerInterceptorAdapter {
 
     @Autowired

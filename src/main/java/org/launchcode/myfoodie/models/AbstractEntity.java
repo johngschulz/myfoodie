@@ -6,6 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.NotNull;
 
+//Generates unique uids
 @MappedSuperclass
 public abstract class AbstractEntity {
 

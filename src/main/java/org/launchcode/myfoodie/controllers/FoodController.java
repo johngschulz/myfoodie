@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+
 @Controller
 public class FoodController extends AbstractController {
 	
@@ -31,7 +32,7 @@ public class FoodController extends AbstractController {
 		return "newfood";
 		
 	}
-
+	// Creates new food object if all data in form is valid
 	@RequestMapping(value = "/newfood", method = RequestMethod.POST)
 	public String newFood(HttpServletRequest request, Model model){
 		String foodname = request.getParameter("foodname");
@@ -45,7 +46,6 @@ public class FoodController extends AbstractController {
 		
 		// validate parameters
 		// if not valid, send back to the form, with error message
-
 		if (foodname == ""){
 			error = "Please enter the food's name!";
 			model.addAttribute("error", error);
@@ -61,24 +61,31 @@ public class FoodController extends AbstractController {
 			model.addAttribute("error", error);
 			return "newfood";
 		}
-		if (price == ""){
+		if (price == "" ||	isNumeric(price) == false){
 			error = "How much did it cost you?";
 			model.addAttribute("error", error);
 			return "newfood";
 		}
-		if (rating == ""){
+
+		if (rating == "" || isNumeric(rating) == false || (Integer.parseInt(rating) <11 && Integer.parseInt(rating) > 0) == false){
 			error = "How would you rate this food?";
 			model.addAttribute("error", error);
 			return "newfood";
 		}
+		// Attempting to format the price data to 2 decimals - may use javascript to format
+		price = String.format("%.2f", Double.valueOf(price) + (double) 0.00000001);
+
 		model.addAttribute("foodname", foodname);
 		model.addAttribute("description", description);
 		model.addAttribute("place", place);
 		model.addAttribute("price", price);
 		model.addAttribute("worthit", worthit);
+		double newprice = Double.valueOf(price);
+
+		
 
 		// if valid, create new food
-		Food food = new Food(user, foodname, place, description, price, rating, worthit);
+		Food food = new Food(user, foodname, place, description, newprice, rating, worthit);
 		foodDao.save(food);
 		String username = user.getUsername();
 		int uid = food.getUid();
@@ -86,7 +93,7 @@ public class FoodController extends AbstractController {
 		return ("redirect:/" + username + "/f"+ uid); //  - this redirect should go to the new food's page  				
 	}
 
-// The CSS won't work with the {uid} mapping
+	//Had issues with Spring finding path to static folder because {uid} was an int
 	@RequestMapping(value = "/{username}/f{uid}", method = RequestMethod.GET)
 	public String singleFood(@PathVariable String username, @PathVariable int uid, Model model) {
 		
@@ -129,6 +136,10 @@ public class FoodController extends AbstractController {
 		model.addAttribute("foods", foods);
 		
 		return "myfood";
+	}
+	public static boolean isNumeric(String str)
+	{
+	  return str.matches("\\d+(\\.\\d+)?");  //match a number with optional '-' and decimal.
 	}
 
 }

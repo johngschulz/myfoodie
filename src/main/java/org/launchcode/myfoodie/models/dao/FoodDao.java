@@ -1,6 +1,5 @@
 package org.launchcode.myfoodie.models.dao;
 
-
 import java.util.List;
 
 import javax.transaction.Transactional;
