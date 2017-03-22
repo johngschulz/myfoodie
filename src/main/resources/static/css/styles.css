@@ -1,22 +1,19 @@
- html { 
-  height: 100%;
-  background: url(/img/burger.jpg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+body{
+  padding-top: 70px;
+  margin: 0 auto;
+  max-width: 900px
 }
-.user-form{
-	
+
+.navbar-inverse{
+  background: #78AB46;
 }
-body {
-	opacity: 0.95;
-    font-family: sans-serif;
-    width: 1000px;
-    height: 100%;
-    margin: 0 auto;
-    padding: 0px;
+.navbar-inverse .navbar-nav>li>a{
+  color:white;
 }
+.navbar-inverse .navbar-brand{
+  color:white;
+}
+
 h1 {
 	text-align: center;
 }
@@ -28,17 +25,12 @@ form {
 }
 label {
 	text-align: left;
+
 }
 .food-form {
 	text-align: center;
 }
 
-.navbar-brand{
-	font-size: 30px;
-}
-.navbar-nav{
-	font-size: 25px;
-}
 .error {
     color: red;
 }
@@ -53,10 +45,12 @@ label {
 
 input[type=text],
 input[type=password],
-input[type=email] {
+input[type=email],
+input[type=number] {
     width: 400px;
     font-size: 20px;
     padding: 2px;
+    text-align: left;
 }
 
 textarea {
@@ -73,18 +67,13 @@ input[type=submit] {
 hr {
     margin: 20px auto;
 }
-
-nav ul {
-    padding: 0;
-    display: inline-block;
+input:focus{
+	background: white;
+	border: 3px solid #78AB46;
+	outline: none;
 }
-
-nav ul li {
-    list-style: none;
-    display: inline-block;
-    margin-right: 15px;
-}
-
-nav #user-account {
-    float: right;
+textarea:focus{
+	background: white;
+	border: 3px solid #78AB46;
+	outline: none;
 }

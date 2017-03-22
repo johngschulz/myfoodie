@@ -14,5 +14,7 @@
 	<p th:text="${food.worthit}"></p>
 	<p class="food-foodie">eaten by<a th:href="'/' + ${food.foodie.username}" th:text="' ' + ${food.foodie.username}"></a> on <span th:text="${#dates.format(food.eatenon, 'yyyy-MM-dd')}"></span></p>
 	</div>
+	
+<div th:replace="template :: libs"></div>
 </body>
 </html>

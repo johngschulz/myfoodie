@@ -9,31 +9,24 @@
 	<h1>Signup</h1>
 	<div class="food-form">
 	<form method="post">
-	    <table>
-	        <tr>
-	            <td><label for="username">Username</label></td>
-	            <td>
-	                <input name="username" type="text" th:value="${username}"></input>
-	                <span class="error" th:text="${username_error}"></span>
-	            </td>
-	        </tr>
-	        <tr>
-	            <td><label for="password">Password</label></td>
-	            <td>
-	                <input name="password" type="password"></input>
-	                <span class="error" th:text="${password_error}"></span>
-	            </td>
-	        </tr>
-	        <tr>
-	            <td><label for="verify">Verify Password</label></td>
-	            <td>
-	                <input name="verify" type="password"></input>
-	                <span class="error" th:text="${verify_error}"></span>
-	            </td>
-	        </tr>
-	    </table>
-	    <button type="submit">Sign Up</button>
+		<label for="username">
+			<div>Username</div>
+	    	<input name="username" type="text" th:value="${username}"></input>
+	        <span class="error" th:text="${username_error}"></span>
+	    </label>
+		<label for="password">
+			<div>Password</div>
+	        <input name="password" type="password"></input>
+	        <span class="error" th:text="${password_error}"></span>
+	    </label>
+		<label for="verify">
+			<div>Verify Password</div>
+	        <input name="verify" type="password"></input>
+	        <span class="error" th:text="${verify_error}"></span>
+	    </label>
+		<button type="submit" class="btn btn-default">Sign Up</button>
 	</form>
 	</div>
+<div th:replace="template :: libs"></div>
 </body>
 </html>

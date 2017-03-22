@@ -12,32 +12,33 @@
 		<form method="post">
 	    <label>
 	        <div>Food Name</div>
-	        <div>&nbsp; &nbsp;<input type="text" name="foodname" th:value="${foodname}"></input></div>
+	        <div><input type="text" name="foodname" th:value="${foodname}"></input></div>
 	    </label>
 	    <label>
 	        <div>Food Description</div>
-	        <div>&nbsp; &nbsp;<textarea name="description" th:text="${body}"></textarea></div>
+	        <div><textarea name="description" th:text="${body}"></textarea></div>
 	    </label>
 	    <label>
 	        <div>Place</div>
-	        <div>&nbsp; &nbsp;<input type="text" name="place" th:value="${place}"></input></div>
+	        <div><input type="text" name="place" th:value="${place}"></input></div>
 	    </label>
 	    <label>
 	        <div>Cost</div>
-	        <div>$<input id="twoplaces" type="text" name="price" th:value="${price}"></input></div>
+	        <div><input id="twoplaces" type="number" name="price" th:value="${price}"></input></div>
 	    </label>
 	    <label>
 	        <div>Rating 1-10</div>
-	        <div>&nbsp; &nbsp;<input type="text" name="rating" th:value="${rating}"></input></div>
+	        <div><input type="text" name="rating" th:value="${rating}"></input></div>
 	    </label>
 	    <label>
 	        <div>Worth It?</div>
-	        <div>&nbsp; &nbsp;<input type="text" name="worthit" th:value="${worthit}"></input></div>
+	        <div><input type="text" name="worthit" th:value="${worthit}"></input></div>
 	    </label>
 	    <div class="error" th:text="${error}"></div>
-	    <button type="submit">Enter New Food!</button>
+	    <button type="submit" class="btn btn-default">Enter New Food!</button>
 	</form>
 	</div>
-
+	
+<div th:replace="template :: libs"></div>
 </body>
 </html>
